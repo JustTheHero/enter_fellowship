@@ -1,0 +1,24 @@
+{
+  "label": "RG",
+  "version": 2,
+  "created_at": "2025-11-06T17:24:23.041619",
+  "updated_at": "2025-11-06T17:24:23.042379",
+  "fields": {
+    "nome": {
+      "description": "Nome completo da pessoa",
+      "first_seen": "2025-11-06T17:24:23.042337",
+      "occurrences": 7
+    },
+    "nome_mae": {
+      "description": "Nome completo da mãe",
+      "first_seen": "2025-11-06T17:24:23.042358",
+      "occurrences": 7
+    },
+    "data_nascimento": {
+      "description": "Data de nascimento",
+      "first_seen": "2025-11-06T17:24:23.042368",
+      "occurrences": 7
+    }
+  },
+  "total_documents_seen": 7
+}
