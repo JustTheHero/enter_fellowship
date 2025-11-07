@@ -164,7 +164,7 @@ class LocalRAG:
 class MinimalLLMExtractor:
     # Classe que usa um LLM (ex: GPT) como fallback
     
-    def __init__(self, model: str = "gpt-4o-mini"):
+    def __init__(self, model: str = "gpt-5-mini"):
         self.model = model
         self.cost_per_1k_input = 0.00015
         self.cost_per_1k_output = 0.0006
