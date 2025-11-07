@@ -83,3 +83,31 @@ Você precisará de **dois terminais**.
 3.  **Documentos:** Arraste seus arquivos PDF.
 4.  Clique em **Processar**.
 5.  Veja os resultados na parte inferior.
+
+
+# Lógica
+
+
+Implementei um fluxo em camadas, onde a IA só entra em ação como último recurso. Antes disso, o sistema tenta resolver sozinho, na seguinte ordem:
+
+1. Padrões óbvios: busca por informações simples (como CPF, CNPJ, datas e e-mails) usando expressões regulares e regras básicas.
+
+2. Memória de template: se o sistema já viu um documento parecido, ele reutiliza o aprendizado anterior — por exemplo, sabe que o “valor total” geralmente aparece após a palavra “TOTAL:”.
+
+3. Semelhança contextual (RAG): se o documento é novo, mas lembra outro que já foi processado, o sistema usa esse documento semelhante como referência para encontrar os dados.
+
+4. IA como fallback: só quando as etapas anteriores falham é que o sistema consulta a IA.
+
+Além disso, agrupei todas as perguntas em uma única chamada à IA (em vez de várias chamadas individuais).
+
+## Tratamento para diferentes documento
+
+Notas fiscais, contratos e laudos seguem estruturas muito distintas. Um sistema baseado apenas em regras fixas quebraria facilmente quando o layout mudasse.Para isso foi usado aprendizado adaptativo
+
+Programei o extrator para aprender e se adaptar conforme processa novos documentos por meio de:
+
+1. Aprendizado rápido: quando a IA encontra um campo corretamente, o sistema registra como ela o encontrou. Assim, nas próximas vezes, ele consegue identificar o mesmo campo sem precisar recorrer novamente à IA.
+
+2. Memória de longo prazo: o sistema também armazena um “resumo” do documento e suas correspondências bem-sucedidas. Se um documento semelhante surgir no futuro, ele reutiliza esse histórico para acelerar e aprimorar a extração.
+
+O sistema se tornou escalável, econômico e inteligente. Ele aprende com seus próprios erros, se ajusta a novos contextos e entrega resultados cada vez mais precisos, sem depender de manutenção constante.
